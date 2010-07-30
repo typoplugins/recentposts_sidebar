@@ -6,7 +6,7 @@ class RecentPostsSidebar < Sidebar
   setting :post_length,     150, :label => "Size of the post to be displayed"
 
   def recent_posts
-     @recent_posts = Article.find(:all, :conditions => "published = 1", :order => 'published_at DESC', :limit => count)
+     @recent_posts = Article.find(:all, :conditions => ["published = ?", true], :order => 'published_at DESC', :limit => count)
   end
   
 end
